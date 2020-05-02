@@ -5,7 +5,7 @@ import {
   inlineInputStyle,
   labelStyle,
   reactSelectStyle,
-  txMetaRowStyle
+  txMetaRowStyle,
 } from '../utils/Styles'
 import copy from 'copy-to-clipboard'
 import { useDispatch, useSelector } from 'react-redux'
@@ -39,6 +39,17 @@ export function TxMetadata () {
     }
   }
 
+  const newAccount = async () => {
+    // add new account from conflux portal
+    try {
+      if (typeof window.conflux !== 'undefined') { 
+        accounts = await window.conflux.enable()      
+        console.log(accounts[0])
+       }
+    } catch (e) {
+      console.error('Could  not create new account: ', account, e)
+    }
+  }
 
   useEffect(() => {
     // maybe a better way to do this, but select the first account if unset or
@@ -50,9 +61,11 @@ export function TxMetadata () {
 
   return <div style={formContainerStyle}>
     <div style={txMetaRowStyle}>
-      <div style={labelStyle}>Account</div>
+      <div style={labelStyle}>Account
+      </div>
+      <i style={iconStyle} className="fas fa-plus-circle" onClick={(e) => newAccount()}/>
       <select className="form-control" defaultValue={account}
-              onChange={(e) => dispatch(selectAccount(e.target.value))}>
+              onChange={(e) => dispatch(selectAccount(e.target.value))} id="txorigin">
         {accounts.map(
           (account) => <option key={account.address}
                                value={account.address}>{account.address}</option>)}

@@ -219,4 +219,3 @@ export const statusStyle = (status) => {
     marginRight: 8,
   }
 }
-
