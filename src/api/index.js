@@ -64,7 +64,7 @@ export async function deploy (contract, params, txMetadata) {
     return value
   })
 
-  const nonce = await cfx.getTransactionCount(txMetadata.account);
+  const nonce = await cfx.cfx_getNextNonce(txMetadata.account);
   const tx = txMetadata.account.signTransaction({
     nonce,
     to: txMetadata.account.address,
