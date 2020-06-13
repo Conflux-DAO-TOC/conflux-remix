@@ -130,6 +130,8 @@ export const labelStyle = {
   fontSize: 12,
   whiteSpace: 'nowrap',
   minWidth: 72,
+  marginBottom: 4,
+  textTransform: uppercase,
 }
 
 export const smallLabelStyle = {
