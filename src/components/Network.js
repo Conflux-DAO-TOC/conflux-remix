@@ -50,18 +50,19 @@ export function Network () {
       await onSave()
     }}>
     <div style={txMetaRowStyle}>
-      <label style={labelStyle}>
-        Conflux Environment
-      </label>
-        <div className="form-control" style={reactSelectStyle}>
-          <select id="selectExEnvOptions" data-id="settingsSelectEnvOptions" class="form-control custom-select">
-            <option id="injected-mode"
-              title="Execution environment has been provided by Conflux Portal."
-              value="injected" name="executionContext"> Conflux Portal
-            </option>
-          </select>
-          <a href="https://developer.conflux-chain.org/docs/conflux-portal/docs/en/portal/introduction" target="_blank"><i class="ml-2 fas fa-info" title="check out docs to setup Environment"></i></a>
-        </div>
+      <div style={labelStyle}>
+        Conflux RPC
+      </div>
+      <InputTooltip
+        enabled={editing}
+        text="This should be the url for your conflux node\'s RPC endpoint. It should include http(s), host/ip, and port. For example: http://localhost:12539/">
+        <input className="form-control"
+               type="text"
+               disabled={!editing}
+               value={endpointInput}
+               onChange={(e) => setEndpointInput(
+               e.target.value)}/>
+      </InputTooltip>
     </div>
     {editing ?
       <div style={txMetaRowRightStyle}>
