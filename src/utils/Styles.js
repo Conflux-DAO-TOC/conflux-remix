@@ -180,8 +180,8 @@ export const errorStyle = {
 }
 
 export const reactSelectStyle = {
-  width: 0,
-  flexGrow: 1
+  fontWeight: normal,
+  width: '100%',
 }
 
 export const optionStyle = {

@@ -53,7 +53,7 @@ export function Network () {
       <label style={labelStyle}>
         Conflux Environment
       </label>
-        <div className="form-control">
+        <div className="form-control" style={reactSelectStyle}>
           <select id="selectExEnvOptions" data-id="settingsSelectEnvOptions" class="form-control custom-select">
             <option id="injected-mode"
               title="Execution environment has been provided by Conflux Portal."
