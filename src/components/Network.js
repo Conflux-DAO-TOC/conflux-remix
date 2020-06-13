@@ -53,16 +53,12 @@ export function Network () {
       <div style={labelStyle}>
         Conflux RPC
       </div>
-      <InputTooltip
-        enabled={editing}
-        text="This should be the url for your conflux node\'s RPC endpoint. It should include http(s), host/ip, and port. For example: http://localhost:12539/">
-        <input className="form-control"
+      <input className="form-control"
                type="text"
                disabled={!editing}
                value={endpointInput}
                onChange={(e) => setEndpointInput(
                e.target.value)}/>
-      </InputTooltip>
     </div>
     {editing ?
       <div style={txMetaRowRightStyle}>
