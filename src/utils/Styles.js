@@ -131,7 +131,7 @@ export const labelStyle = {
   whiteSpace: 'nowrap',
   minWidth: 72,
   marginBottom: 4,
-  textTransform: uppercase,
+  textTransform: 'uppercase',
 }
 
 export const smallLabelStyle = {
@@ -182,7 +182,7 @@ export const errorStyle = {
 }
 
 export const reactSelectStyle = {
-  fontWeight: normal,
+  fontWeight: 'normal',
   width: '100%',
 }
 
