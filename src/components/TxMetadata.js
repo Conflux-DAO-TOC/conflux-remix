@@ -4,7 +4,6 @@ import {
   iconStyle,
   inlineInputStyle,
   labelStyle,
-  reactSelectStyle,
   txMetaRowStyle,
 } from '../utils/Styles'
 import copy from 'copy-to-clipboard'
@@ -43,8 +42,7 @@ export function TxMetadata () {
     // add new account from conflux portal
     try {
       if (typeof window.conflux !== 'undefined') { 
-        accounts = await window.conflux.enable()      
-        console.log(accounts[0])
+        account = await window.conflux.enable()
        }
     } catch (e) {
       console.error('Could  not create new account: ', account, e)
@@ -57,7 +55,7 @@ export function TxMetadata () {
     if (accounts.length > 0 && !accounts.includes(account)) {
       dispatch(selectAccount(accounts[0]))
     }
-  }, [accounts])
+  }, [accounts, account, dispatch])
 
   return <div style={formContainerStyle}>
     <div style={txMetaRowStyle}>

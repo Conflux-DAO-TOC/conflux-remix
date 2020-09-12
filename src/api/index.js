@@ -1,5 +1,4 @@
 import {Conflux, Account, util as CfxUtil} from 'js-conflux-sdk'
-import { getConstructor } from '../utils/ContractUtils'
 import axios from 'axios'
 
 axios.defaults.headers.post['Content-Type'] = 'application/json'
@@ -56,13 +55,7 @@ export async function getAccounts () {
 }
 
 export async function deploy (contract, params, txMetadata) {
-  let abi = contract.abi
-  const constructor = getConstructor(abi)
   const bytecode = '0x' + contract.evm.bytecode.object
-  const orderedParams = constructor.inputs.map(({ name, type }) => {
-    const value = params[name]
-    return value
-  })
 
   const nonce = await cfx.cfx_getNextNonce(txMetadata.account);
   const tx = txMetadata.account.signTransaction({

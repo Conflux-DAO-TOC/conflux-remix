@@ -19,7 +19,7 @@ export function Deploy() {
     if (!(selectedContract in contracts)) {
       dispatch(selectContract(Object.keys(contracts)[0]))
     }
-  }, [contracts])
+  }, [contracts, selectedContract, dispatch])
 
 
   return <div style={{width: '100%'}}>

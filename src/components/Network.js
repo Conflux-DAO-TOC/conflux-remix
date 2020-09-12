@@ -9,7 +9,6 @@ import {
 } from '../utils/Styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { editNetwork, saveNetwork, setError, connectToNetwork } from '../actions'
-import { InputTooltip } from './InputTooltip'
 
 export function Network () {
   const state = useSelector(state => state)
